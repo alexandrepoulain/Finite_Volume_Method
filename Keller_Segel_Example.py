@@ -1,10 +1,38 @@
+'''
+Details of the project 
+Authors
+Date
+'''
+
+
+
+
 import pynite as pn
 import sympy as sp
 import numpy as np
 
+
+### Initialisation
+## Definition of the constants
+# Space :
+dim = 1   # dimension
+L = 1     # length of the domain
+dx = 0.1  # grid step
+
+# Temporal
+dt = 0.01 # time step
+T = 10    # End time
+
+# Model
+D = 0.5 # diffusion coefficient
+Chi = 10 # Coeff of chemosensitivity
+
+## Definition of unknowns at time n+1 and n
 Un = sp.Symbol('U__n')
 Unplusun = sp.Symbol('U__n+1')
 Cn = sp.Symbol('C__n')
+
+## Creation of the equation 
 eq = pn.keller_segel(0.1,0.2,0.3,0.4,0.5)
 sp.preview(eq, viewer='file', filename='keller_segel.png')
 test=[]
